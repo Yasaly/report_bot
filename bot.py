@@ -299,7 +299,7 @@ async def subscribe_receive(update: Update, context: ContextTypes.DEFAULT_TYPE) 
 
     await update.message.reply_text(
         f"Готово! nickname '{nickname}' теперь привязан к этому чату.\n"
-        f"Можешь использовать его в вызове notifier.message('{nickname}', '...')."
+        f"Можешь использовать его в вызове message('{nickname}', '...')."
     )
     return ConversationHandler.END
 
