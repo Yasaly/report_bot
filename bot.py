@@ -270,14 +270,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(text)
 
 
-# --- общий /cancel для всех диалогов ---
-
 async def cancel_all(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text("Ок, действие отменили.")
     return ConversationHandler.END
-
-
-# --- подписка через ConversationHandler (/subscribe) ---
 
 async def subscribe_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Старт подписки: просим пользователя отправить nickname отдельным сообщением."""
@@ -362,9 +357,6 @@ async def list_users(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         )
 
     await update.message.reply_text("\n".join(lines))
-
-
-# --- двухшаговый /setrole с выбором роли кнопками ---
 
 async def setrole_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """
@@ -461,9 +453,6 @@ async def setrole_receive_nickname(update: Update, context: ContextTypes.DEFAULT
     context.user_data.pop("target_role", None)
     return ConversationHandler.END
 
-
-# --- двухшаговый /unsubscribe_user ---
-
 async def unsubscribe_user_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """
     Шаг 1: админ пишет /unsubscribe_user,
@@ -520,10 +509,10 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
 
     # Текст для пользователя
     if isinstance(context.error, BotUserError):
-        # "Ожидаемая" ошибка — показываем текст как есть
+        # "Ожидаемая" ошибка - показываем текст как есть
         text = str(context.error)
     else:
-        # Любая другая — не палим внутренности, просто говорим, что что-то сломалось
+        # Любая другая - говорим, что что-то сломалось
         text = "⚠️ Что-то пошло не так. Попробуй ещё раз чуть позже."
 
     # Пытаемся отправить ответ в тот же чат
