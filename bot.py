@@ -260,7 +260,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "message('<твой_nickname>', 'Вычисления закончены!')\n\n"
         "Полезные команды:\n"
         "• /whoami — посмотреть свой chat_id и привязанные nickname\n"
-        "• /unsubscribe — удалить свои nickname из базы\n"
+        "• /unsubscribe — отписаться от рассылки\n"
         "• /cancel — отменить текущее действие\n\n"
         "Команды для администраторов:\n"
         "• /list_users — список всех пользователей\n"
